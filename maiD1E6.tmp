@@ -1,0 +1,413 @@
+[gd_scene load_steps=24 format=3 uid="uid://c1ele5grybl8j"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_gf37r"]
+[ext_resource type="Script" path="res://area_2d.gd" id="1_wvbv5"]
+[ext_resource type="PackedScene" uid="uid://c867sgdbdbk67" path="res://frutas.tscn" id="2_hsj44"]
+[ext_resource type="Texture2D" uid="uid://bi853auaipmvk" path="res://assets/cenario/background_jogo.png" id="4_juq46"]
+[ext_resource type="PackedScene" uid="uid://b35yil1bf6a4d" path="res://bomba.tscn" id="5_4ggto"]
+[ext_resource type="Texture2D" uid="uid://coj4agyxb32pc" path="res://assets/frutas/cesta_jogo.png" id="6_rbfu3"]
+[ext_resource type="FontFile" uid="uid://b6harnldd63xl" path="res://assets/LilitaOne-Regular.ttf" id="7_j84ar"]
+[ext_resource type="Texture2D" uid="uid://rs2sju16whsc" path="res://assets/cenario/topo_jogo.png" id="8_h5k34"]
+[ext_resource type="Texture2D" uid="uid://c5t4eavbni5tq" path="res://assets/cenario/0_vidas.png" id="9_vftvs"]
+[ext_resource type="Texture2D" uid="uid://djgi53xvai63a" path="res://assets/cenario/1_vida.png" id="10_qnlko"]
+[ext_resource type="Texture2D" uid="uid://66pnodnus4qr" path="res://assets/cenario/2_vidas.png" id="11_hwxi5"]
+[ext_resource type="Texture2D" uid="uid://b6f0dip5pt5kx" path="res://assets/cenario/3_vidas.png" id="12_8ox8o"]
+[ext_resource type="Texture2D" uid="uid://dbpirkmoq57k7" path="res://assets/cenario/cesta_cheia_certa.png" id="13_7sywd"]
+[ext_resource type="AudioStream" uid="uid://b7wo6mjbiwnnj" path="res://assets/audio/MA_RocaMusic_CandyMiners_Loop.ogg" id="14_flbpk"]
+[ext_resource type="AudioStream" uid="uid://btutegvga2cf4" path="res://assets/audio/Good Idea_2_Good Thinking.wav" id="15_eoixe"]
+[ext_resource type="AudioStream" uid="uid://cnc4lipwmkbwa" path="res://assets/audio/Negative sound effect.mp3" id="16_gk08n"]
+[ext_resource type="AudioStream" uid="uid://b723wsvtx16cy" path="res://assets/audio/Video Game Jump Sound Effect 1.wav" id="17_uewqr"]
+
+[sub_resource type="Animation" id="Animation_7evlh"]
+resource_name = "CESTA"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.06, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.633333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.06, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.633333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.633333)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-189.865, -0.25, 0, 0.25, 0, -166, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.633333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:modulate:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_fahvv"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_gcpj2"]
+resource_name = "coleta"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.533333, -0.25, 0, 0.25, 0, 0.533333, -0.25, 0, 0.25, 0, 0.533333, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.866667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.866667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.866667)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.866667)
+}
+
+[sub_resource type="Animation" id="Animation_xpwim"]
+resource_name = "coleta_-"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.8)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.8)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.8)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.8)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ptww0"]
+_data = {
+"CESTA": SubResource("Animation_7evlh"),
+"RESET": SubResource("Animation_fahvv"),
+"coleta": SubResource("Animation_gcpj2"),
+"coleta_-": SubResource("Animation_xpwim")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axds0"]
+size = Vector2(275, 142)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_gf37r")
+fruta_scene = ExtResource("2_hsj44")
+inimigo_scene = ExtResource("5_4ggto")
+metadata/_edit_vertical_guides_ = [960.0]
+metadata/_edit_horizontal_guides_ = [997.0]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(959.111, 540.5)
+scale = Vector2(1.00833, 1.00833)
+texture = ExtResource("4_juq46")
+
+[node name="Cesta" type="Area2D" parent="."]
+z_index = 5
+position = Vector2(960, 919)
+script = ExtResource("1_wvbv5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cesta"]
+position = Vector2(0, -166)
+texture = ExtResource("6_rbfu3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cesta/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_ptww0")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cesta"]
+position = Vector2(-10.5, 62)
+shape = SubResource("RectangleShape2D_axds0")
+
+[node name="frutas" parent="." instance=ExtResource("2_hsj44")]
+visible = false
+
+[node name="Node2D" parent="." instance=ExtResource("5_4ggto")]
+visible = false
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Timer_inimigo" type="Timer" parent="."]
+
+[node name="vidas" type="Label" parent="."]
+offset_left = 57.0
+offset_top = -8.0
+offset_right = 160.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 140
+text = "0"
+
+[node name="topo" type="Sprite2D" parent="."]
+position = Vector2(957.833, 540)
+scale = Vector2(1.0033, 1.0037)
+texture = ExtResource("8_h5k34")
+
+[node name="3_vidas" type="Sprite2D" parent="."]
+position = Vector2(227, 95)
+texture = ExtResource("12_8ox8o")
+
+[node name="2_vidas" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(223, 95)
+texture = ExtResource("11_hwxi5")
+
+[node name="1_vidas" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(223, 95)
+texture = ExtResource("10_qnlko")
+
+[node name="0_vidas" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(229.77, 98.59)
+texture = ExtResource("9_vftvs")
+
+[node name="cesta_cheia" type="Sprite2D" parent="."]
+position = Vector2(1718, 102)
+texture = ExtResource("13_7sywd")
+
+[node name="adicionar_numero" type="Label" parent="."]
+visible = false
+self_modulate = Color(0, 1, 0, 1)
+z_index = 7
+offset_top = -189.865
+offset_right = 137.0
+offset_bottom = -33.865
+scale = Vector2(1.06, 1.06)
+theme_override_fonts/font = ExtResource("7_j84ar")
+theme_override_font_sizes/font_size = 136
+text = "+1"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="adicionar_numero"]
+libraries = {
+"": SubResource("AnimationLibrary_ptww0")
+}
+autoplay = "coleta"
+
+[node name="remover_numero" type="Label" parent="."]
+z_index = 6
+offset_top = -166.001
+offset_right = 130.0
+offset_bottom = -5.00067
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_j84ar")
+theme_override_font_sizes/font_size = 140
+text = "-1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="remover_numero"]
+libraries = {
+"": SubResource("AnimationLibrary_ptww0")
+}
+autoplay = "coleta_-"
+
+[node name="contador" type="Label" parent="."]
+layout_direction = 2
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1531.0
+offset_top = 23.0
+offset_right = 1743.0
+offset_bottom = 168.0
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.243137, 0.333333, 0.109804, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("7_j84ar")
+theme_override_font_sizes/font_size = 126
+text = "0"
+horizontal_alignment = 2
+
+[node name="musica" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_flbpk")
+volume_db = -7.924
+autoplay = true
+
+[node name="coleta" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_eoixe")
+
+[node name="negativo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_gk08n")
+volume_db = -5.943
+
+[node name="perdida" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_uewqr")
+
+[connection signal="area_entered" from="Cesta" to="." method="_on_cesta_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer_inimigo" to="." method="_on_Timer_inimigo_timeout"]

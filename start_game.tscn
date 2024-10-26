@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk2o20g75ha0b"]
+
+[ext_resource type="Script" path="res://start_game.gd" id="1_172eo"]
+[ext_resource type="Texture2D" uid="uid://b7hurxj3qf7qo" path="res://assets/game_over/inicio.png" id="1_u0n6t"]
+[ext_resource type="Texture2D" uid="uid://d2tumi1fcebwx" path="res://assets/game_over/but_inicio.png" id="2_oqgph"]
+[ext_resource type="AudioStream" uid="uid://b723wsvtx16cy" path="res://assets/audio/Video Game Jump Sound Effect 1.wav" id="4_gldwu"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_172eo")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_u0n6t")
+
+[node name="inicio" type="Button" parent="."]
+offset_left = 822.0
+offset_top = 867.0
+offset_right = 1115.0
+offset_bottom = 1006.0
+focus_mode = 0
+icon = ExtResource("2_oqgph")
+flat = true
+
+[node name="som" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gldwu")
+
+[connection signal="pressed" from="inicio" to="." method="_on_inicio_pressed"]

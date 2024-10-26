@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c867sgdbdbk67"]
+
+[ext_resource type="Script" path="res://frutas.gd" id="1_immw0"]
+[ext_resource type="Texture2D" uid="uid://dywwokjl2n3ou" path="res://assets/frutas/morango_jogo.png" id="2_uvt05"]
+[ext_resource type="AudioStream" uid="uid://b723wsvtx16cy" path="res://assets/audio/Video Game Jump Sound Effect 1.wav" id="3_sncnt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bljav"]
+radius = 96.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_immw0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_uvt05")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-7, 0)
+shape = SubResource("CircleShape2D_bljav")
+
+[node name="som" type="AudioStreamPlayer2D" parent="Area2D"]
+stream = ExtResource("3_sncnt")
+volume_db = -11.861
