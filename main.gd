@@ -126,18 +126,18 @@ func _on_cesta_area_entered(area: Area2D) -> void:
 		remove_bomba(bombas)
 		area.queue_free()
 
-## Função para verificar se frutas caíram fora da tela
-#func verifica_fruta():
-	#var vidas = 0 
-	#vidas = Global.perdidas
-	#if vidas == 1:
-		#v2.visible = true
-	#elif vidas == 2:
-		#v1.visible = true
-	#elif vidas == 3:
-		#v0.visible = true
-		#await get_tree().create_timer(0.3).timeout 
-		#game_over()
+# Função para verificar se frutas caíram fora da tela
+func verifica_fruta():
+	var vidas = 0 
+	vidas = Global.perdidas
+	if vidas == 1:
+		v2.visible = true
+	elif vidas == 2:
+		v1.visible = true
+	elif vidas == 3:
+		v0.visible = true
+		await get_tree().create_timer(0.3).timeout 
+		game_over()
 
 func adiciona_morango(numero):
 	var quantidade = numero
