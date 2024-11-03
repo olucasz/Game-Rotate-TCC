@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c1ele5grybl8j"]
+[gd_scene load_steps=29 format=3 uid="uid://c1ele5grybl8j"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gf37r"]
 [ext_resource type="Script" path="res://area_2d.gd" id="1_wvbv5"]
@@ -17,6 +17,11 @@
 [ext_resource type="AudioStream" uid="uid://btutegvga2cf4" path="res://assets/audio/Good Idea_2_Good Thinking.wav" id="15_eoixe"]
 [ext_resource type="AudioStream" uid="uid://cnc4lipwmkbwa" path="res://assets/audio/Negative sound effect.mp3" id="16_gk08n"]
 [ext_resource type="AudioStream" uid="uid://b723wsvtx16cy" path="res://assets/audio/Video Game Jump Sound Effect 1.wav" id="17_uewqr"]
+[ext_resource type="Texture2D" uid="uid://bxdmsn8q3tcbx" path="res://assets/pause/w_pause.png" id="18_ns7jf"]
+[ext_resource type="Texture2D" uid="uid://cutxpoli1oy2y" path="res://assets/pause/restart_pause.png" id="19_pkg5w"]
+[ext_resource type="Texture2D" uid="uid://8hjg6ejxv6fb" path="res://assets/pause/play.png" id="20_pjh1e"]
+[ext_resource type="Texture2D" uid="uid://ctsmajdf6sv56" path="res://assets/pause/pause_x.png" id="21_d6sya"]
+[ext_resource type="Texture2D" uid="uid://dt4xcccavpwkj" path="res://assets/pause/pause.png" id="22_16bfk"]
 
 [sub_resource type="Animation" id="Animation_7evlh"]
 resource_name = "CESTA"
@@ -279,7 +284,8 @@ position = Vector2(960, 919)
 script = ExtResource("1_wvbv5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Cesta"]
-position = Vector2(0, -166)
+position = Vector2(0, -189.865)
+scale = Vector2(1.06, 1.06)
 texture = ExtResource("6_rbfu3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Cesta/Sprite2D"]
@@ -358,10 +364,12 @@ libraries = {
 autoplay = "coleta"
 
 [node name="remover_numero" type="Label" parent="."]
+visible = false
 z_index = 6
-offset_top = -166.001
+offset_top = -189.865
 offset_right = 130.0
-offset_bottom = -5.00067
+offset_bottom = -28.8647
+scale = Vector2(1.06, 1.06)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("7_j84ar")
 theme_override_font_sizes/font_size = 140
@@ -405,9 +413,69 @@ stream = ExtResource("15_eoixe")
 stream = ExtResource("16_gk08n")
 volume_db = -5.943
 
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_uewqr")
+
 [node name="perdida" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_uewqr")
+
+[node name="pause_but" type="Button" parent="."]
+offset_left = 921.0
+offset_top = 22.0
+offset_right = 1002.0
+offset_bottom = 103.0
+focus_mode = 0
+icon = ExtResource("22_16bfk")
+flat = true
+
+[node name="pause" type="Control" parent="."]
+visible = false
+z_index = 12
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="pause"]
+position = Vector2(960, 540)
+scale = Vector2(1.01296, 1.01296)
+texture = ExtResource("18_ns7jf")
+
+[node name="restart_pause" type="Button" parent="pause"]
+process_mode = 3
+offset_left = 865.0
+offset_top = 539.0
+offset_right = 1054.0
+offset_bottom = 729.0
+focus_mode = 0
+icon = ExtResource("19_pkg5w")
+flat = true
+
+[node name="play_pause" type="Button" parent="pause"]
+process_mode = 3
+offset_left = 1084.0
+offset_top = 541.0
+offset_right = 1278.0
+offset_bottom = 735.0
+focus_mode = 0
+icon = ExtResource("20_pjh1e")
+flat = true
+
+[node name="quit_pause" type="Button" parent="pause"]
+process_mode = 3
+layout_mode = 0
+offset_left = 645.0
+offset_top = 503.0
+offset_right = 839.0
+offset_bottom = 738.0
+focus_mode = 0
+icon = ExtResource("21_d6sya")
+flat = true
 
 [connection signal="area_entered" from="Cesta" to="." method="_on_cesta_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer_inimigo" to="." method="_on_Timer_inimigo_timeout"]
+[connection signal="pressed" from="pause_but" to="." method="_on_pause_but_pressed"]
+[connection signal="pressed" from="pause/restart_pause" to="." method="_on_restart_pause_pressed"]
+[connection signal="pressed" from="pause/play_pause" to="." method="_on_play_pause_pressed"]
+[connection signal="pressed" from="pause/quit_pause" to="." method="_on_quit_pause_pressed"]

@@ -8,6 +8,7 @@ var frutas_coletadas = 0
 var frutas_perdidas = 0
 var limite = 1000
 var bombas = 0
+var teste = 0
 var distancia_minima = 200  # Distância mínima entre fruta e inimigo
 @onready var label = $contador
 @onready var vidas = $vidas
@@ -16,6 +17,7 @@ var distancia_minima = 200  # Distância mínima entre fruta e inimigo
 @onready var coleta = $coleta
 @onready var negativo = $negativo
 @onready var perdida = $perdida
+@onready var click = $click
 var cestaP = Area2D
 var topo = Sprite2D
 var cesta_c = Sprite2D
@@ -23,12 +25,14 @@ var v3 = Sprite2D
 var v2 = Sprite2D
 var v1 = Sprite2D
 var v0 = Sprite2D
-
+@onready var pause_layer = Control
 
 var ultima_posicao_fruta = Vector2.ZERO  # Guarda a última posição da fruta
 
 func _ready():
 	reseta_global()
+	pause_layer = $pause
+	teste = Global.perdidas
 	cestaP = $Cesta
 	topo = $topo
 	cesta_c = $cesta_cheia
@@ -63,9 +67,14 @@ func _ready():
 
 
 func _process(delta: float) -> void:
+	audio_fruta()
 	verifica_fruta()
 	
-	
+func audio_fruta():
+	if Global.perdidas > 0:
+		if teste != Global.perdidas:
+			$negativo.play()
+			teste = Global.perdidas
 # Função chamada toda vez que o timer de frutas dá timeout
 func _on_TimerFruta_timeout():
 	gerar_fruta()
@@ -154,6 +163,7 @@ func remove_bomba(q_bomba):
 	menos_bomba.visible = true
 	negativo.play()
 	$remover_numero/AnimationPlayer.play("coleta_-")
+	
 func posi_label(frutas):
 	var dois_digitos = Vector2(1520, 23)
 	var tres_digitos = Vector2(1500, 23)
@@ -171,3 +181,31 @@ func reseta_global():
 func game_over():
 	Global.total = frutas_coletadas
 	get_tree().change_scene_to_file("res://game_over.tscn")
+
+
+func _on_pause_but_pressed() -> void:
+	click.play()
+	await get_tree().create_timer(0.1).timeout 
+	pause_layer.visible = true
+	get_tree().paused = true
+
+
+func _on_play_pause_pressed() -> void:
+	click.play()
+	pause_layer.visible = false
+	get_tree().paused = false
+
+
+func _on_restart_pause_pressed() -> void:
+	click.play()
+	pause_layer.visible = false
+	get_tree().paused = false
+	await get_tree().create_timer(0.2).timeout 
+	get_tree().change_scene_to_file("res://main.tscn")
+
+
+func _on_quit_pause_pressed() -> void:
+	click.play()
+	pause_layer.visible = false
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://start_game.tscn") 

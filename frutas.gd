@@ -7,8 +7,9 @@ func _ready():
 
 func _process(delta):
 	position.y += velocidade_queda * delta  # Faz a fruta descer
-	if position.y > 1080:
-		await get_tree().create_timer(0.7).timeout  # Limite para quando a fruta sai da tela (ajustar conforme sua resolução)
+	if position.y > 1090:
+		$remover_numero/AnimationPlayer.play("coleta_-")
+		await get_tree().create_timer(0.3).timeout 
 		queue_free() 
 		adiciona_perca() 
 		
