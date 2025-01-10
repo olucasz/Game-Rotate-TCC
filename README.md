@@ -30,7 +30,7 @@
 
 1. **Download do APK**:  
    Baixe o jogo diretamente para o seu dispositivo Android:  
-   [📥 Clique aqui para baixar o APK](https://github.com/olucasz/Game_tcc_tomada/releases/latest/download/Game_tcc_tomada.apk)  
+   [📥 Clique aqui para baixar o APK](https://github.com/olucasz/Game_Rotate_TCC/releases/latest/download/Fruit.io.apk)  
 
 2. **Instale o APK**:  
    - Certifique-se de habilitar a instalação de aplicativos de fontes desconhecidas nas configurações do dispositivo.  
